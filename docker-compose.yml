@@ -24,7 +24,7 @@ services:
       JWT_EXPIRES_IN: ${JWT_EXPIRES_IN}
     ports:
       - "${PORT_BACKEND}:5000"
-    command: ["sh", "-c", "node dist/prisma/seed -- all && node dist/src/main"]
+    command: ["sh", "-c", "npx prisma migrate deploy && node dist/prisma/seed -- all && node dist/src/main"]
     env_file:
       - .env 
 
